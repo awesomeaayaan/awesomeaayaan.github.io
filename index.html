@@ -28,6 +28,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/contacts.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: iPortfolio - v3.7.0
@@ -80,7 +81,7 @@
       
       <h1>Aayaan Gautam</h1>
       <p>I'm <span class="typed"
-          data-typed-items=" python programmer, Dotnet Developer, Machine Learning enthuasistic,Self Learner"></span></p>
+          data-typed-items=" Python Programmer, RPA Developer, Machine Learning Enthuasistic,Self Learner"></span></p>
     </div>
   </section><!-- End Hero -->
 
@@ -92,8 +93,7 @@
 
         <div class="section-title">
           <h2>About</h2>
-          <p>I am an undergraduate of Bachelor in Computer Science and Information Technology at Bhaktapur Multiple
-            Campus of batch 2075, Nepal.</p>
+          <p>I am a graduate of Bachelor in Computer Science and Information Technology from Bhaktapur Multiple Campus, batch of 2075, Nepal.</p>
             <p>My interests include software development, Artificial Intelligence, Machine Learning,Computer Vision and
             Deep Learning.</p>
         </div>
@@ -116,13 +116,13 @@
                   <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>aayaangautam.com.np</span>
                   </li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>9861841779</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span> sallaghar,Bhaktapur, Nepal</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span> Shrijananagar,Bhaktapur, Nepal</span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Experience:</strong> <span>Entry level</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Undergraduate(student)</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Experience:</strong> <span>Software Engineer At Quickfox Consulting</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Graduate</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
                     <span>aayaan.gautam1999@gmail.com</span>
                   </li>
@@ -510,7 +510,8 @@
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
-      <div class="container">
+
+      <!-- <div class="container">
 
         <div class="section-title">
           <h2>Contact</h2>
@@ -574,7 +575,64 @@
 
         </div>
 
+      </div> -->
+
+      <!-- 
+    =======================================================================
+
+    This is a working contact form. To receive email, 
+    Replace YOUR_ACCESS_KEY_HERE with your actual Access Key.
+
+    Create Access Key here 👉 https://web3forms.com/
+
+    =======================================================================
+ -->
+
+<div class="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900">
+  <div class="container mx-auto">
+    <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
+      <div class="text-center">
+        <h1 class="my-3 text-3xl font-semibold text-blue-700 dark:text-blue-700">
+          Contact me
+        </h1>
+        <p class="text-blue-400 dark:text-blue-400">
+          Fill up the form below to send me a message.
+        </p>
       </div>
+      <div class="m-7">
+        <form action="https://api.web3forms.com/submit" method="POST" id="form">
+          <input type="hidden" name="access_key" value="8fb2931e-8d86-49db-b39c-7d9381b508e9" />
+          <input type="hidden" name="subject" value="New Submission from Web3Forms" />
+          <input type="checkbox" name="botcheck" id="" style="display: none;" />
+
+          <div class="mb-6">
+            <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Full Name</label>
+            <input type="text" name="name" id="name" placeholder="John Doe" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+          </div>
+          <div class="mb-6">
+            <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
+            <input type="email" name="email" id="email" placeholder="you@company.com" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+          </div>
+          <div class="mb-6">
+            <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Phone Number</label>
+            <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+          </div>
+          <div class="mb-6">
+            <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Your Message</label>
+
+            <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required></textarea>
+          </div>
+          <div class="mb-6">
+            <button type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
+              Send Message
+            </button>
+          </div>
+          <p class="text-base text-center text-gray-400" id="result"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
