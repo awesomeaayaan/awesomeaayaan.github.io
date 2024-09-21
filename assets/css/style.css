@@ -235,6 +235,38 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1px;
   border-bottom: 3px solid #149ddd;
 }
+
+
+.download-cv {
+  background-color: #149ddd;
+  border: 3px solid #149ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px 25px;
+  text-align: center;
+  transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out, background-color 150ms ease-in-out;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.download-cv:hover {
+  background-color: #fff;
+  border:  3px solid white;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px) scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .download-cv {
+    padding: 10px 30px;
+  }
+}
 @media (min-width: 1024px) {
   #hero {
     background-attachment: fixed;
