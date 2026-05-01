@@ -1,8 +1,5 @@
 /**
-* Template Name: iPortfolio - v3.7.0
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* Main JavaScript for Aayaan Gautam Portfolio
 */
 (function() {
   "use strict";
@@ -97,7 +94,7 @@
   })
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Scroll with offset on links with a class name .scrollto
    */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
@@ -113,17 +110,6 @@
       scrollto(this.hash)
     }
   }, true)
-
-  /**
-   * Scroll with ofset on page load with hash links in the url
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash)
-      }
-    }
-  });
 
   /**
    * Hero type effect
@@ -144,159 +130,73 @@
   /**
    * Skills animation
    */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
+  let progressBars = select('.progress-bar', true);
+  if (progressBars.length > 0) {
+    const animateProgress = () => {
+      progressBars.forEach((el) => {
+        let rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
           el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
+        }
+      });
+    }
+    window.addEventListener('scroll', animateProgress);
+    window.addEventListener('load', animateProgress);
   }
 
   /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
-      });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
-      }, true);
-    }
-
-  });
-
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
-
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
-  });
-
-  /**
-   * Animation on scroll
+   * Animation on scroll (AOS)
    */
   window.addEventListener('load', () => {
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out',
-      once: true,
-      mirror: false
+      once: false,
+      mirror: true
     })
   });
 
-})()
+  /**
+   * Contact Form Handling
+   */
+  const contactForm = select('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+      const submitBtn = contactForm.querySelector('.btn-submit');
+      const originalBtnText = submitBtn.innerHTML;
+      
+      submitBtn.innerHTML = '<i class="bx bx-loader-alt bx-spin"></i> Sending...';
+      submitBtn.disabled = true;
 
-const form = document.getElementById("form");
-const result = document.getElementById("result");
-
-form.addEventListener("submit", function (e) {
-  const formData = new FormData(form);
-  e.preventDefault();
-  var object = {};
-  formData.forEach((value, key) => {
-    object[key] = value;
-  });
-  var json = JSON.stringify(object);
-  result.innerHTML = "Please wait...";
-
-  fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json"
-    },
-    body: json
-  })
-    .then(async (response) => {
-      let json = await response.json();
-      if (response.status == 200) {
-        result.innerHTML = json.message;
-        result.classList.remove("text-gray-500");
-        result.classList.add("text-green-500");
-      } else {
-        console.log(response);
-        result.innerHTML = json.message;
-        result.classList.remove("text-gray-500");
-        result.classList.add("text-red-500");
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-      result.innerHTML = "Something went wrong!";
-    })
-    .then(function () {
-      form.reset();
-      setTimeout(() => {
-        result.style.display = "none";
-      }, 5000);
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      })
+      .then(async (response) => {
+        let res = await response.json();
+        if (response.status == 200) {
+          submitBtn.innerHTML = '<i class="bx bx-check"></i> Sent!';
+          submitBtn.style.background = '#28a745';
+          contactForm.reset();
+        } else {
+          submitBtn.innerHTML = 'Error!';
+          submitBtn.style.background = '#dc3545';
+        }
+      })
+      .catch((error) => {
+        submitBtn.innerHTML = 'Error!';
+        submitBtn.style.background = '#dc3545';
+      })
+      .finally(() => {
+        setTimeout(() => {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+          submitBtn.style.background = '';
+        }, 3000);
+      });
     });
-});
+  }
+
+})();
