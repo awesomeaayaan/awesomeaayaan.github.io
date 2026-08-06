@@ -8,10 +8,59 @@
   <title>Aayaan Gautam | ML & RPA Developer</title>
   <meta content="Aayaan Gautam is a professional Machine Learning and RPA Developer based in Nepal, specializing in Python, Automation, and Data Science." name="description">
   <meta content="Machine Learning, RPA, Python Developer, Aayaan Gautam, Portfolio, Data Science, automation" name="keywords">
+  <link rel="canonical" href="https://aayaangautam.com.np/">
+  <meta name="theme-color" content="#00f2fe">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aayaangautam.com.np/">
+  <meta property="og:title" content="Aayaan Gautam | ML & RPA Developer">
+  <meta property="og:description" content="Aayaan Gautam is a professional Machine Learning and RPA Developer based in Nepal, specializing in Python, Automation, and Data Science.">
+  <meta property="og:image" content="https://aayaangautam.com.np/assets/img/profile-img.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://aayaangautam.com.np/">
+  <meta name="twitter:title" content="Aayaan Gautam | ML & RPA Developer">
+  <meta name="twitter:description" content="Aayaan Gautam is a professional Machine Learning and RPA Developer based in Nepal, specializing in Python, Automation, and Data Science.">
+  <meta name="twitter:image" content="https://aayaangautam.com.np/assets/img/profile-img.jpg">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aayaan Gautam",
+    "url": "https://aayaangautam.com.np/",
+    "image": "https://aayaangautam.com.np/assets/img/profile-img.jpg",
+    "jobTitle": "Machine Learning & RPA Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "QuickFox Consulting"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Bhaktapur Multiple Campus, Tribhuvan University"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bhaktapur",
+      "addressCountry": "Nepal"
+    },
+    "email": "mailto:aayaan.gautam1999@gmail.com",
+    "sameAs": [
+      "https://github.com/awesomeaayaan",
+      "https://www.linkedin.com/in/aayaan-gautam-5017a3219/",
+      "https://twitter.com/aayaan_gautam",
+      "https://www.facebook.com/aayaan.gautam.9/",
+      "https://www.instagram.com/aayaangautam_/"
+    ]
+  }
+  </script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +77,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/chatbot.css" rel="stylesheet">
 </head>
 
 <body>
@@ -94,7 +144,7 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile-img.jpg" class="img-fluid floating-img" alt="Profile Image">
+            <img src="assets/img/profile-img.jpg" class="img-fluid floating-img" alt="Profile Image" loading="lazy">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>Machine Learning & RPA Developer</h3>
@@ -104,7 +154,7 @@
             <div class="row mt-4">
               <div class="col-lg-6">
                 <ul class="info-list">
-                  <li><i class="bx bx-check-double"></i> <strong>Phone:</strong> +977 9861841779</li>
+                  <li><i class="bx bx-check-double"></i> <strong>Phone:</strong> +977 9861941779</li>
                   <li><i class="bx bx-check-double"></i> <strong>Email:</strong> aayaan.gautam1999@gmail.com</li>
                 </ul>
               </div>
@@ -307,6 +357,14 @@
                 <li>Implemented ML models (Linear Regression, Random Forest, etc.) and mastered libraries like NLTK, NumPy, Pandas, and PyTorch.</li>
               </ul>
             </div>
+
+            <h3 class="resume-title mt-5">Education</h3>
+
+            <div class="resume-item" data-aos="fade-up" data-aos-delay="400">
+              <h4>B.Sc. Computer Science and Information Technology (CSIT)</h4>
+              <h5>2019 - 2023</h5>
+              <p><em>Bhaktapur Multiple Campus, Tribhuvan University &mdash; Batch 2075</em></p>
+            </div>
           </div>
         </div>
 
@@ -498,7 +556,7 @@
   <footer id="footer">
     <div class="container text-center">
       <div class="copyright">
-        &copy; 2024 <strong><span>Aayaan Gautam</span></strong>. All Rights Reserved
+        &copy; <span id="copyright-year">2024</span> <strong><span>Aayaan Gautam</span></strong>. All Rights Reserved
       </div>
       <div class="social-links mt-3">
         <a href="https://github.com/awesomeaayaan" target="_blank"><i class="bx bxl-github"></i></a>
@@ -521,6 +579,13 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Portfolio Chatbot -->
+  <script src="assets/js/chatbot.js"></script>
+
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
 
 </body>
 
